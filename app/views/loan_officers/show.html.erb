@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @loan_officer.employee_id %>
+</p>
+
+<p>
+  <strong>Loan:</strong>
+  <%= @loan_officer.loan_id %>
+</p>
+
+<%= link_to 'Edit', edit_loan_officer_path(@loan_officer) %> |
+<%= link_to 'Back', loan_officers_path %>

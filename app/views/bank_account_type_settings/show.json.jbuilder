@@ -1,0 +1,1 @@
+json.partial! "bank_account_type_settings/bank_account_type_setting", bank_account_type_setting: @bank_account_type_setting

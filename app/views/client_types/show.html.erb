@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @client_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @client_type.description %>
+</p>
+
+<p>
+  <strong>Is group:</strong>
+  <%= @client_type.is_group %>
+</p>
+
+<%= link_to 'Edit', edit_client_type_path(@client_type) %> |
+<%= link_to 'Back', client_types_path %>

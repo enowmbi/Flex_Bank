@@ -1,0 +1,31 @@
+<%= form_for(identification_type) do |f| %>
+  <% if identification_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(identification_type.errors.count, "error") %> prohibited this identification_type from being saved:</h2>
+
+      <ul>
+      <% identification_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="col-md-6 form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name,class:"form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description,class:"form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%= f.submit class:"btn btn-primary" %>
+  </div>
+  </div>
+<% end %>
+<br/>

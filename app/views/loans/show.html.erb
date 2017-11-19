@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Principal requested:</strong>
+  <%= @loan.principal_requested %>
+</p>
+
+<p>
+  <strong>Principal approved:</strong>
+  <%= @loan.principal_approved %>
+</p>
+
+<p>
+  <strong>Interest:</strong>
+  <%= @loan.interest %>
+</p>
+
+<p>
+  <strong>Percent:</strong>
+  <%= @loan.percent %>
+</p>
+
+<p>
+  <strong>Paid in full:</strong>
+  <%= @loan.paid_in_full %>
+</p>
+
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', loans_path %>

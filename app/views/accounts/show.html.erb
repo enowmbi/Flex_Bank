@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+    <strong>Name:</strong>
+    <%= @account.name %>
+</p>
+
+<p>
+    <strong>Code:</strong>
+    <%= @account.code %>
+</p>
+
+<p>
+    <strong>Description:</strong>
+    <%= @account.description %>
+</p>
+<p>
+    <strong>Contra:</strong>
+    <%= status_tag(@account.contra) %>
+</p>
+<p>
+    <strong>Parent:</strong>
+    <%= Account.find_by_parent_id(@account.parent_id).name %>
+</p>
+
+<p>
+    <strong>Account type:</strong>
+    <%= @account.account_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

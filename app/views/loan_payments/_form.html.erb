@@ -1,0 +1,52 @@
+<%= form_for(loan_payment) do |f| %>
+  <% if loan_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loan_payment.errors.count, "error") %> prohibited this loan_payment from being saved:</h2>
+
+      <ul>
+      <% loan_payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :loan_id %>
+    <%= f.number_field :loan_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :principal_expected %>
+    <%= f.text_field :principal_expected %>
+  </div>
+
+  <div class="field">
+    <%= f.label :principal_paid %>
+    <%= f.text_field :principal_paid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :interest_expected %>
+    <%= f.text_field :interest_expected %>
+  </div>
+
+  <div class="field">
+    <%= f.label :interest_paid %>
+    <%= f.text_field :interest_paid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :charges_paid %>
+    <%= f.text_field :charges_paid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_payment %>
+    <%= f.datetime_select :date_of_payment %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

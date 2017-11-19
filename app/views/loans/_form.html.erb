@@ -1,0 +1,73 @@
+<%= form_for(loan) do |f| %>
+  <% if loan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+
+      <ul>
+      <% loan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :principal_requested %>
+    <%= f.text_field :principal_requested %>
+  </div>
+
+  <div class="field">
+    <%= f.label :principal_approved %>
+    <%= f.text_field :principal_approved %>
+  </div>
+
+  <div class="field">
+    <%= f.label :interest %>
+    <%= f.text_field :interest %>
+  </div>
+
+  <div class="field">
+    <%= f.label :percent %>
+    <%= f.check_box :percent %>
+  </div>
+
+  <div class="field">
+    <%= f.label :paid_in_full %>
+    <%= f.check_box :paid_in_full %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :charges %>
+    <%= f.text_field :charges %>
+</div>
+
+    <div class="field">
+    <%= f.label :application_fee %>
+    <%= f.text_field :application_fee %>
+    
+</div>
+    <div class="field">
+    <%= f.label :starts_on %>
+    <%= f.datetime_select :starts_on %>
+</div>
+
+
+    <div class="field">
+        <%= f.label :ends_on %>
+        <%= f.datetime_select :ends_on %>
+</div>
+    <div class="field">
+    <%= f.label :duration %>
+    <%= f.number_field :duration %>
+</div> 
+   
+    <div class="field">
+    <%= f.label :principal_requested %>
+    <%= f.text_field :principal_requested %>
+
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Organizations</h1>
+
+<table class="table table-condensed table-hover table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>City</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th>Tax payers number</th>
+			<th>Cnps number</th>
+			<th>Motto</th>
+			<th>Parent</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @organizations.each do |organization| %>
+			<tr>
+				<td><%= organization.name %></td>
+				<td><%= organization.address %></td>
+				<td><%= organization.city %></td>
+				<td><%= organization.phone %></td>
+				<td><%= organization.email %></td>
+				<td><%= organization.tax_payers_number %></td>
+				<td><%= organization.cnps_number %></td>
+				<td><%= organization.motto %></td>
+				<td><%= organization.parent_id %></td>
+				<td><%= link_to 'Show', organization %></td>
+				<td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+				<td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Organization', new_organization_path,class:"btn btn-primary" %>

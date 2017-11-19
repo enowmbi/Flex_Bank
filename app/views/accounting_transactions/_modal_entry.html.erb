@@ -1,0 +1,58 @@
+
+<!-- Modal -->
+<%= form_for([transaction, transaction.entries.build]) do |f| %>
+<div class="modal fade" id="modal-entry" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="ModalLabel">New Accounting Transaction Entry</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <%=label_tag "Transaction ID" %>
+            <%= f.text_field :accounting_transaction_id, class:"form-control" %>
+          </div>
+          <div class="col-md-6 form-group">
+            <%= label_tag "Transaction Date" %>
+            <%= text_field_tag :transaction_date,@transaction.transaction_date,id:"transaction_date", class:"form-control" %>
+          </div>
+        </div>
+ 
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description,class:"form-control" %>
+        </div>
+        </div> 
+    <div class="row">
+			<div class="col-md-3 form-group">
+				<%=f.label :entry_type %>
+        <%=f.select(:entry_type,['Debit','Credit'],{}, class:"form-control") %>
+			</div>
+			<div class="col-md-6 form-group">
+				<%= f.label :account_id %>
+        <%= f.select(:account_id,@accounts.map{|a|[a.name,a.id]},{},class:"form-control") %>
+			</div>
+
+        <div class="col-md-3 form-group">
+            <%= label_tag "Amount"%>
+            <%= f.text_field :amount, class:"form-control" %>
+          </div>
+          </div>
+    </div>
+			
+      <div class="modal-footer">
+        <%= f.submit class:"btn btn-primary" %>
+        <!-- <button id="btnSaveNew" type="button" class="btn btn&#45;primary">Save and New</button> -->
+        <!-- <button id="btnSaveClose" type="button" class="btn btn&#45;primary">Save and Close</button>  -->
+        <button id="btnClose" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

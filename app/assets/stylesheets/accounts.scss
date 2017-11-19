@@ -1,0 +1,59 @@
+// Place all the styles related to the Accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+	background-color : #EEEEEE ; /*grey */
+	font-family:Helvetica,arial,sans-serif;
+}
+a{
+ text-decoration:none;
+ color:#4c2516; //lightbrown
+}
+
+#container{
+	background-color: #F2DC87; /* yellow */
+	width:1200px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#header {
+	background: #4C2516; /*darkbrown #332318*/
+	color:white;
+	text-align:center;
+	padding:10px;
+}
+#content{
+	padding :10px 10px 10px 10px;
+}
+#nav{
+	width:270px;
+	float:left;
+  background-color: #94b266; /* green*/
+  //color: #B6D491; /*light green*/*/
+  padding:2px;
+}
+#nav ul{
+	list-style-type: none;
+	padding:0px;
+}
+#main{
+	width:900px;
+	float:right;
+}
+#footer{
+clear:both;
+padding:10px;
+background-color: #4C2516 ; /*lightbrown*/
+color:#F2DC87;
+text-align: right
+
+
+}
+.selected{
+	font-weight:bold;
+}
+h1, h2 ,h3{
+	margin:0;
+}
+//
+

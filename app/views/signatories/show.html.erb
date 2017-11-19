@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @signatory.first_name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @signatory.middle_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @signatory.last_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @signatory.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @signatory.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @signatory.email %>
+</p>
+
+<p>
+  <strong>Relationship or position:</strong>
+  <%= @signatory.relationship_or_position %>
+</p>
+
+<p>
+  <strong>Major signatory:</strong>
+  <%= @signatory.major_signatory %>
+</p>
+
+<p>
+  <strong>Identification type:</strong>
+  <%= @signatory.identification_type_id %>
+</p>
+
+<p>
+  <strong>Identification number:</strong>
+  <%= @signatory.identification_number %>
+</p>
+
+<p>
+  <strong>Bank account:</strong>
+  <%= @signatory.bank_account_id %>
+</p>
+
+<%= link_to 'Edit', edit_signatory_path(@signatory) %> |
+<%= link_to 'Back', signatories_path %>

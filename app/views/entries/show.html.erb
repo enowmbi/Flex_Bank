@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @entry.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @entry.description %>
+</p>
+
+<p>
+  <strong>Debit account:</strong>
+  <%= Account.find_by_id(@entry.debit_account_id).name %>
+</p>
+
+<p>
+  <strong>Credit account:</strong>
+  <%= Account.find_by_id(@entry.credit_account_id).name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= number_to_currency(@entry.amount,unit:"F",format:"%n %u",precision:0) %>
+</p>
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Back', entries_path %>

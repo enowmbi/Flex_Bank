@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title><%= t('app_name') %> | <%=  @page_title ||"blank"%></title>
+
+        <%= csrf_meta_tags %>
+
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+        <style>
+            span.status{display:block; width:10px; height:10px; margin:0.25em auto; padding:0; border:1px solid #000000;}
+
+            span.status.true{background:green;color:green;}
+            span.status.false{background:red;color:red;}
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <%= render 'layouts/general/navigation' %>
+        </header>
+        <main role="main">
+            <%#= render 'layouts/plutus/messages' %>
+            <div class="container">
+                <div class="row">
+                    <%= yield %>
+                </div>
+            </div>
+        </main>
+        <footer text-align="center">
+            <%= render 'layouts/general/footer' %>
+        </footer>
+
+    </body>
+</html>

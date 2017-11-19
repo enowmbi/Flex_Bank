@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  value: MyString
+  description: MyText
+  organization: one
+  setting_type: one  
+
+two:
+  name: MyString
+  value: MyString
+  description: MyText
+  organization: one
+  setting_type: one 
+

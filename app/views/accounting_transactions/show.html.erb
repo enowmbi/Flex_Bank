@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<h1>Accounting Transaction - Details</h1>
+<p>
+<strong>Transaction date:</strong>
+<%= @transaction.transaction_date %>
+</p>
+
+<p>
+<strong>Description:</strong>
+<%= @transaction.description %>
+</p>
+
+<%= link_to 'Edit', edit_accounting_transaction_path(@transaction) %> |
+<%= link_to 'Back', accounting_transactions_path %>
+<h3>Transaction Entries</h3>
+<hr/>
+<%= button_tag :new_entry,id:"btn_new_entry", class:"btn btn-primary" do %>
+ New Entry
+<% end %>
+
+<%= render 'entries', transaction_entries: @transaction_entries %>
+
+<%= render 'modal_entry', transaction: @transaction %>
+
+
+<script language="javascript"> 
+ 	$(document).ready(function(){
+		Show.init();}); 
+ </script>

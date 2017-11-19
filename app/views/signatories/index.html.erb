@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Signatories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Last name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Relationship or position</th>
+      <th>Major signatory</th>
+      <th>Identification type</th>
+      <th>Identification number</th>
+      <th>Bank account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @signatories.each do |signatory| %>
+      <tr>
+        <td><%= signatory.first_name %></td>
+        <td><%= signatory.middle_name %></td>
+        <td><%= signatory.last_name %></td>
+        <td><%= signatory.address %></td>
+        <td><%= signatory.phone %></td>
+        <td><%= signatory.email %></td>
+        <td><%= signatory.relationship_or_position %></td>
+        <td><%= signatory.major_signatory %></td>
+        <td><%= signatory.identification_type_id %></td>
+        <td><%= signatory.identification_number %></td>
+        <td><%= signatory.bank_account_id %></td>
+        <td><%= link_to 'Show', signatory %></td>
+        <td><%= link_to 'Edit', edit_signatory_path(signatory) %></td>
+        <td><%= link_to 'Destroy', signatory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Signatory', new_signatory_path %>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bank Account Type Settings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Description</th>
+      <th>Frequency</th>
+      <th>Percent</th>
+      <th>Apply to</th>
+      <th>Bank account type</th>
+      <th>Setting type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bank_account_type_settings.each do |bank_account_type_setting| %>
+      <tr>
+        <td><%= bank_account_type_setting.name %></td>
+        <td><%= bank_account_type_setting.value %></td>
+        <td><%= bank_account_type_setting.description %></td>
+        <td><%= bank_account_type_setting.frequency %></td>
+        <td><%= bank_account_type_setting.percent %></td>
+        <td><%= bank_account_type_setting.apply_to %></td>
+        <td><%= bank_account_type_setting.bank_account_type_id %></td>
+        <td><%= bank_account_type_setting.setting_type_id %></td>
+        <td><%= link_to 'Show', bank_account_type_setting %></td>
+        <td><%= link_to 'Edit', edit_bank_account_type_setting_path(bank_account_type_setting) %></td>
+        <td><%= link_to 'Destroy', bank_account_type_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bank Account Type Setting', new_bank_account_type_setting_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_number: 1
+  currency: MyString
+  enable_sms_alert: false
+  enable_email_alert: false
+  bank_account_type: one
+  account_officer: 1
+  client: one
+
+two:
+  account_number: 1
+  currency: MyString
+  enable_sms_alert: false
+  enable_email_alert: false
+  bank_account_type: one
+  account_officer: 1
+  client: one

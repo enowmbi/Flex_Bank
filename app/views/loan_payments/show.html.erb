@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Loan:</strong>
+  <%= @loan_payment.loan_id %>
+</p>
+
+<p>
+  <strong>Principal expected:</strong>
+  <%= @loan_payment.principal_expected %>
+</p>
+
+<p>
+  <strong>Principal paid:</strong>
+  <%= @loan_payment.principal_paid %>
+</p>
+
+<p>
+  <strong>Interest expected:</strong>
+  <%= @loan_payment.interest_expected %>
+</p>
+
+<p>
+  <strong>Interest paid:</strong>
+  <%= @loan_payment.interest_paid %>
+</p>
+
+<p>
+  <strong>Charges paid:</strong>
+  <%= @loan_payment.charges_paid %>
+</p>
+
+<p>
+  <strong>Date of payment:</strong>
+  <%= @loan_payment.date_of_payment %>
+</p>
+
+<%= link_to 'Edit', edit_loan_payment_path(@loan_payment) %> |
+<%= link_to 'Back', loan_payments_path %>

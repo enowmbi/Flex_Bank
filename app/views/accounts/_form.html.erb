@@ -1,0 +1,53 @@
+<%= form_for(account) do |f| %>
+    <% if account.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+            <ul>
+                <% account.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+<div class="row">
+    <div class="col-md-4 form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name,class:"form-control" %>
+    </div>
+    
+        <div class="col-md-3 form-group">
+            <%= f.label :code %>
+            <%= f.text_field :code,class:"form-control" %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description,class:"form-control" %>
+        </div>
+    
+        <div class="col-md-3 form-group">
+            <%= f.label :contra %>
+            <%= f.check_box :contra,class:"checkbox" %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <%= f.label :parent_id %>
+            <%= f.select(:parent_id,Account.all.map{|a|[a.name,a.id]},{include_blank:true},class:"form-control") %>
+        </div>
+    
+
+        <div class="col-md-3 form-group">
+            <%= f.label :account_type %>
+            <%= f.select(:account_type_id,AccountType.all.map{|a|[a.name,a.id]},{},class:"form-control") %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <%= f.submit class:"btn btn-primary" %>
+        </div>
+    </div>
+<% end %>
+

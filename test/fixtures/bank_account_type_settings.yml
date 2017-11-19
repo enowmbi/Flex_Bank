@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  value: MyString
+  description: MyText
+  frequency: MyString
+  percent: false
+  apply_to: MyString
+  bank_account_type: one
+  setting_type_id: MyString
+
+two:
+  name: MyString
+  value: MyString
+  description: MyText
+  frequency: MyString
+  percent: false
+  apply_to: MyString
+  bank_account_type: one
+  setting_type_id: MyString

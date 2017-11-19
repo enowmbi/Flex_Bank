@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Loans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Principal requested</th>
+      <th>Principal approved</th>
+      <th>Interest</th>
+      <th>Percent</th>
+      <th>Paid in full</th>
+      <th>Loan officer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.principal_requested %></td>
+        <td><%= loan.principal_approved %></td>
+        <td><%= loan.interest %></td>
+        <td><%= loan.percent %></td>
+        <td><%= loan.paid_in_full %></td>
+        <td><%= link_to 'Show', loan %></td>
+        <td><%= link_to 'Edit', edit_loan_path(loan) %></td>
+        <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loan', new_loan_path %>

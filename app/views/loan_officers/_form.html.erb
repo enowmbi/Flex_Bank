@@ -1,0 +1,27 @@
+<%= form_for(loan_officer) do |f| %>
+  <% if loan_officer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loan_officer.errors.count, "error") %> prohibited this loan_officer from being saved:</h2>
+
+      <ul>
+      <% loan_officer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :employee_id %>
+    <%= f.number_field :employee_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :loan_id %>
+    <%= f.number_field :loan_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

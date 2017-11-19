@@ -1,0 +1,74 @@
+<%= form_for(client) do |f| %>
+    <% if client.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+            <ul>
+                <% client.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="row">
+        <div class="col-md-3 form-group">
+            <%= f.label :first_name %>
+
+            <%= f.text_field :first_name,class:"form-control" %>
+        </div>
+
+        <div class="col-md-3 form-group">
+            <%= f.label :middle_name%>
+            <%= f.text_field :middle_name,class:"form-control" %>
+        </div>
+
+        <div class="col-md-3 form-group">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name,class:"form-control" %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <%= f.label :address %>
+            <%= f.text_area :address,class:"form-control" %>
+        </div>
+
+        <div class="col-md-3 form-group">
+            <%= f.label :city %>
+            <%= f.text_field :city,class:"form-control" %>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-3 form-group">
+            <%= f.label :phone %>
+            <%= f.text_field :phone,class:"form-control" %>
+        </div>
+
+
+        <div class="col-md-6 form-group">
+            <%= f.label :email%>
+            <%= f.text_field :email,class:"form-control" %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 form-group">
+            <%= f.label :identification_type_id %>
+            <%= f.select(:identification_type_id,IdentificationType.all.map{|i|[i.name,i.id]},{},class:"form-control") %>
+        </div>
+
+        <div class="col-md-3 form-group">
+            <%= f.label :identification_number %>
+            <%= f.text_field :identification_number,class:"form-control" %>
+        </div>
+
+        <div class="col-md-3 form-group">
+            <%= f.label :client_type_id %>
+            <%= f.select(:client_type_id,ClientType.all.map{|c|[c.name,c.id]},{},class:"form-control")%>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.submit class:"btn btn-primary" %>
+    </div>
+<% end %>
+

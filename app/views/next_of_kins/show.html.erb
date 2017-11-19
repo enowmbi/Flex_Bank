@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @next_of_kin.first_name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @next_of_kin.middle_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @next_of_kin.last_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @next_of_kin.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @next_of_kin.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @next_of_kin.email %>
+</p>
+
+<p>
+  <strong>Relationship:</strong>
+  <%= @next_of_kin.relationship %>
+</p>
+
+<p>
+  <strong>Identification type:</strong>
+  <%= @next_of_kin.identification_type_id %>
+</p>
+
+<p>
+  <strong>Identification number:</strong>
+  <%= @next_of_kin.identification_number %>
+</p>
+
+<p>
+  <strong>Bank account:</strong>
+  <%= @next_of_kin.bank_account_id %>
+</p>
+
+<%= link_to 'Edit', edit_next_of_kin_path(@next_of_kin) %> |
+<%= link_to 'Back', next_of_kins_path %>

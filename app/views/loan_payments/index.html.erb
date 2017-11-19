@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Loan Payments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Loan</th>
+      <th>Principal expected</th>
+      <th>Principal paid</th>
+      <th>Interest expected</th>
+      <th>Interest paid</th>
+      <th>Charges paid</th>
+      <th>Date of payment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loan_payments.each do |loan_payment| %>
+      <tr>
+        <td><%= loan_payment.loan_id %></td>
+        <td><%= loan_payment.principal_expected %></td>
+        <td><%= loan_payment.principal_paid %></td>
+        <td><%= loan_payment.interest_expected %></td>
+        <td><%= loan_payment.interest_paid %></td>
+        <td><%= loan_payment.charges_paid %></td>
+        <td><%= loan_payment.date_of_payment %></td>
+        <td><%= link_to 'Show', loan_payment %></td>
+        <td><%= link_to 'Edit', edit_loan_payment_path(loan_payment) %></td>
+        <td><%= link_to 'Destroy', loan_payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loan Payment', new_loan_payment_path %>

@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Accounting Transactions</h1>
+
+<table class="table table-condensed table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Transaction date</th>
+      <th>Description</th>
+      <th>Debit </th>
+      <th>Credit </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% total_debits = 0 %>
+  <% total_credits = 0%>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <% transaction_debit = transaction.entries.where(entry_type:"Debit").sum(:amount) %>
+        <% transaction_credit = transaction.entries.where(entry_type:"Credit").sum(:amount) %>
+        <% total_debits = total_debits + transaction_debit %>
+        <% total_credits = total_credits + transaction_credit %>
+        <td><%= transaction.transaction_date %></td>
+        <td><%= transaction.description %></td>
+        <td><%=number_to_currency(transaction_debit,precision:0,unit:"F",format:"%n %u")  %></td>
+        <td><%=number_to_currency(transaction_credit,precision:0,unit:"F",format:"%n %u")  %></td>
+        <td><%= link_to 'Show Details', transaction, class:"btn btn-info btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_accounting_transaction_path(transaction),class:"btn btn-info btn-xs" %></td>
+        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-info btn-xs" %></td>
+      </tr>
+    <% end %>
+    
+<tr class="info">
+  <td><b> Total</b></td>
+  <td></td>
+  <td><b><%=number_to_currency(total_debits,precision:0,unit:"F",format:"%n %u")  %></b></td>
+  <td><b><%=number_to_currency(total_credits,precision:0,unit:"F",format:"%n %u")  %></b></td>
+  <td></td>
+  <td></td>
+  <td></td>
+
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'New Accounting Transaction', new_accounting_transaction_path,class:"btn btn-primary" %>

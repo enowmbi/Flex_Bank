@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bank_account_type_setting.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @bank_account_type_setting.value %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bank_account_type_setting.description %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @bank_account_type_setting.frequency %>
+</p>
+
+<p>
+  <strong>Percent:</strong>
+  <%= @bank_account_type_setting.percent %>
+</p>
+
+<p>
+  <strong>Apply to:</strong>
+  <%= @bank_account_type_setting.apply_to %>
+</p>
+
+<p>
+  <strong>Bank account type:</strong>
+  <%= @bank_account_type_setting.bank_account_type_id %>
+</p>
+
+<p>
+  <strong>Setting type:</strong>
+  <%= @bank_account_type_setting.setting_type_id %>
+</p>
+
+<%= link_to 'Edit', edit_bank_account_type_setting_path(@bank_account_type_setting) %> |
+<%= link_to 'Back', bank_account_type_settings_path %>

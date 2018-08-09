@@ -6,43 +6,43 @@ class NextOfKinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get next_of_kins_url
+    get client_bank_account_next_of_kins_url @next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id
     assert_response :success
   end
 
   test "should get new" do
-    get new_next_of_kin_url
+    get new_client_bank_account_next_of_kin_url @next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id,@next_of_kin
     assert_response :success
   end
 
   test "should create next_of_kin" do
     assert_difference('NextOfKin.count') do
-      post next_of_kins_url, params: { next_of_kin: { address: @next_of_kin.address, bank_account_id: @next_of_kin.bank_account_id, email: @next_of_kin.email, first_name: @next_of_kin.first_name, identification_number: @next_of_kin.identification_number, identification_type_id: @next_of_kin.identification_type_id, last_name: @next_of_kin.last_name, middle_name: @next_of_kin.middle_name, phone: @next_of_kin.phone, relationship: @next_of_kin.relationship } }
+      post client_bank_account_next_of_kins_url(@next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id), params: { next_of_kin: { address: @next_of_kin.address, bank_account_id: @next_of_kin.bank_account_id, email: @next_of_kin.email,city: @next_of_kin.city, first_name: @next_of_kin.first_name, identification_number: @next_of_kin.identification_number, identification_type_id: @next_of_kin.identification_type_id, last_name: @next_of_kin.last_name, middle_name: @next_of_kin.middle_name, phone: @next_of_kin.phone, relationship: @next_of_kin.relationship } }
     end
 
-    assert_redirected_to next_of_kin_url(NextOfKin.last)
+    assert_redirected_to client_bank_account_next_of_kin_url(@next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id,NextOfKin.last)
   end
 
   test "should show next_of_kin" do
-    get next_of_kin_url(@next_of_kin)
+    get client_bank_account_next_of_kin_url(@next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id,@next_of_kin)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_next_of_kin_url(@next_of_kin)
+    get edit_client_bank_account_next_of_kin_url(@next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id,@next_of_kin)
     assert_response :success
   end
 
   test "should update next_of_kin" do
-    patch next_of_kin_url(@next_of_kin), params: { next_of_kin: { address: @next_of_kin.address, bank_account_id: @next_of_kin.bank_account_id, email: @next_of_kin.email, first_name: @next_of_kin.first_name, identification_number: @next_of_kin.identification_number, identification_type_id: @next_of_kin.identification_type_id, last_name: @next_of_kin.last_name, middle_name: @next_of_kin.middle_name, phone: @next_of_kin.phone, relationship: @next_of_kin.relationship } }
-    assert_redirected_to next_of_kin_url(@next_of_kin)
+    patch client_bank_account_next_of_kin_url(@next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id,@next_of_kin), params: { next_of_kin: { address: @next_of_kin.address, bank_account_id: @next_of_kin.bank_account_id, email: @next_of_kin.email, city: @next_of_kin.city, first_name: @next_of_kin.first_name, identification_number: @next_of_kin.identification_number, identification_type_id: @next_of_kin.identification_type_id, last_name: @next_of_kin.last_name, middle_name: @next_of_kin.middle_name, phone: @next_of_kin.phone, relationship: @next_of_kin.relationship } }
+    assert_redirected_to client_bank_account_next_of_kin_url(@next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id,@next_of_kin)
   end
 
   test "should destroy next_of_kin" do
     assert_difference('NextOfKin.count', -1) do
-      delete next_of_kin_url(@next_of_kin)
+      delete client_bank_account_next_of_kin_url(@next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id,@next_of_kin)
     end
 
-    assert_redirected_to next_of_kins_url
+    assert_redirected_to client_bank_account_next_of_kins_url @next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id
   end
 end

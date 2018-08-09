@@ -38,9 +38,23 @@ gem 'bootstrap-sass'
 #use autoprefixer-rails to add browser-vendor prefixes -to compile scss files on-the-fly
 gem 'autoprefixer-rails'
 
+#use paperclip for files/image resizing and uploading 
+gem 'paperclip'
+
+gem 'hirb'
+gem 'twilio-ruby'
+
+gem 'cancancan'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  # gem 'simplecov'
+
+  # gem 'turn'
+
+  # gem 'ZenTest'
 end
 
 group :development do

@@ -5,6 +5,7 @@ one:
   middle_name: MyString
   last_name: MyString
   address: MyText
+  city: MyText
   phone: MyString
   email: nok1@flexbank.com
   relationship: MyString
@@ -17,6 +18,7 @@ two:
   middle_name: MyString
   last_name: MyString
   address: MyText
+  city: MyText
   phone: MyString
   email: nok2@flexbank.com
   relationship: MyString

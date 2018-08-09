@@ -6,44 +6,44 @@ class BankAccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get bank_accounts_url
+    get client_bank_accounts_url @bank_account.client_id
     assert_response :success
   end
 
   test "should get new" do
-    get new_bank_account_url
+    get new_client_bank_account_url @bank_account.client_id, @bank_account
     assert_response :success
   end
 
   test "should create bank_account" do
     assert_difference('BankAccount.count') do
-      post bank_accounts_url, params: { bank_account: { account_number: @bank_account.account_number, account_officer: @bank_account.account_officer, bank_account_type_id: @bank_account.bank_account_type_id, currency: @bank_account.currency, enable_email_alert: @bank_account.enable_email_alert, enable_sms_alert: @bank_account.enable_sms_alert, client_id: @bank_account.client_id } }
+      post client_bank_accounts_url @bank_account.client_id, params: { bank_account: { account_number: @bank_account.account_number, account_officer: @bank_account.account_officer, bank_account_type_id: @bank_account.bank_account_type_id, currency: @bank_account.currency, enable_email_alert: @bank_account.enable_email_alert, enable_sms_alert: @bank_account.enable_sms_alert, client_id: @bank_account.client_id } }
     end
 
-    assert_redirected_to bank_account_url(BankAccount.last)
+    assert_redirected_to client_bank_account_url(@bank_account.client_id,BankAccount.last)
   end
 
   test "should show bank_account" do
-    get bank_account_url(@bank_account)
+    get client_bank_account_url(@bank_account.client_id,@bank_account)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_bank_account_url(@bank_account)
+    get edit_client_bank_account_url(@bank_account.client_id,@bank_account)
     assert_response :success
   end
 
   test "should update bank_account" do
-    patch bank_account_url(@bank_account), params: { bank_account: { account_number: @bank_account.account_number, account_officer: @bank_account.account_officer, bank_account_type_id: @bank_account.bank_account_type_id, currency: @bank_account.currency, enable_email_alert: @bank_account.enable_email_alert, enable_sms_alert: @bank_account.enable_sms_alert, client_id: @bank_account.client_id } }
-    assert_redirected_to bank_account_url(@bank_account)
+    patch client_bank_account_url(@bank_account.client_id,@bank_account), params: { bank_account: { account_number: @bank_account.account_number, account_officer: @bank_account.account_officer, bank_account_type_id: @bank_account.bank_account_type_id, currency: @bank_account.currency, enable_email_alert: @bank_account.enable_email_alert, enable_sms_alert: @bank_account.enable_sms_alert, client_id: @bank_account.client_id } }
+    assert_redirected_to client_bank_account_url(@bank_account.client_id,@bank_account)
   end
 
 
   test "should destroy bank_account" do
     assert_difference('BankAccount.count', -1) do
-      delete bank_account_url(@bank_account)
+      delete client_bank_account_url(@bank_account.client_id,@bank_account)
     end
 
-    assert_redirected_to bank_accounts_url
+    assert_redirected_to client_bank_accounts_url @bank_account.client_id
   end
 end

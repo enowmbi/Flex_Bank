@@ -8,7 +8,7 @@ one:
   percent: false
   apply_to: MyString
   bank_account_type: one
-  setting_type_id: MyString
+  setting_type: one
 
 two:
   name: MyString
@@ -17,5 +17,5 @@ two:
   frequency: MyString
   percent: false
   apply_to: MyString
-  bank_account_type: one
-  setting_type_id: MyString
+  bank_account_type: two
+  setting_type: two

@@ -4,8 +4,8 @@ one:
   principal_requested: 9.99
   principal_approved: 9.99
   interest: 9.99
-  percent: false
-  paid_in_full: false
+  percent: true
+  paid_in_full: true
   charges: 9.99
   application_fee: 9.99
   starts_on: 2017-11-03

@@ -1,6 +1,7 @@
 <h1>Editing Next Of Kin</h1>
 
-<%= render 'form', next_of_kin: @next_of_kin %>
+<%= render partial: "form", locals:{client: @client, bank_account: @bank_account, next_of_kin: @next_of_kin} %>
 
-<%= link_to 'Show', @next_of_kin %> |
-<%= link_to 'Back', next_of_kins_path %>
+<%= link_to 'Show', [@next_of_kin.bank_account.client, @next_of_kin.bank_account, @next_of_kin] %> |
+<%= link_to 'Back', client_bank_account_next_of_kins_path %>
+

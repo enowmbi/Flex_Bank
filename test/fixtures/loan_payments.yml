@@ -7,7 +7,7 @@ one:
   interest_expected: 9.99
   interest_paid: 9.99
   charges_paid: 9.99
-  date_of_payment: 2017-08-24 15:45:16
+  date_of_payment: 2017-08-24 
 
 two:
   loan: one
@@ -16,4 +16,4 @@ two:
   interest_expected: 9.99
   interest_paid: 9.99
   charges_paid: 9.99
-  date_of_payment: 2017-08-24 15:45:16
+  date_of_payment: 2017-08-24 

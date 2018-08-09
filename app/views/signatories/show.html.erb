@@ -1,18 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @signatory.first_name %>
-</p>
-
-<p>
-  <strong>Middle name:</strong>
-  <%= @signatory.middle_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @signatory.last_name %>
+  <strong>Name:</strong>
+  <%= @signatory.full_name %>
 </p>
 
 <p>
@@ -28,6 +18,11 @@
 <p>
   <strong>Email:</strong>
   <%= @signatory.email %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @signatory.city %>
 </p>
 
 <p>
@@ -55,5 +50,5 @@
   <%= @signatory.bank_account_id %>
 </p>
 
-<%= link_to 'Edit', edit_signatory_path(@signatory) %> |
-<%= link_to 'Back', signatories_path %>
+<%= link_to 'Edit', edit_client_bank_account_signatory_path(@signatory.bank_account.client_id,@signatory.bank_account_id,@signatory) %> |
+<%= link_to 'Back', client_bank_account_signatories_path %>

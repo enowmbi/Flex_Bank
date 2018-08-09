@@ -1,6 +1,7 @@
 <h1>Editing Signatory</h1>
 
-<%= render 'form', signatory: @signatory %>
+<%= render partial: "form",locals: {client: @client, bank_account: @bank_account, signatory: @signatory} %>
 
-<%= link_to 'Show', @signatory %> |
-<%= link_to 'Back', signatories_path %>
+<%= link_to 'Show', [@signatory.bank_account.client, @signatory.bank_account, @signatory] %> |
+<%= link_to 'Back', client_bank_account_signatories_path %>
+

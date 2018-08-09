@@ -1,18 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @next_of_kin.first_name %>
-</p>
-
-<p>
-  <strong>Middle name:</strong>
-  <%= @next_of_kin.middle_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @next_of_kin.last_name %>
+  <strong>Name:</strong>
+  <%= @next_of_kin.full_name %>
 </p>
 
 <p>
@@ -50,5 +40,5 @@
   <%= @next_of_kin.bank_account_id %>
 </p>
 
-<%= link_to 'Edit', edit_next_of_kin_path(@next_of_kin) %> |
-<%= link_to 'Back', next_of_kins_path %>
+<%= link_to 'Edit', edit_client_bank_account_next_of_kin_path(@next_of_kin.bank_account.client_id,@next_of_kin.bank_account_id,@next_of_kin) %> |
+<%= link_to 'Back', client_bank_account_next_of_kins_path %>

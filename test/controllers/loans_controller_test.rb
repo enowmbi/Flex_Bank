@@ -36,7 +36,6 @@ class LoansControllerTest < ActionDispatch::IntegrationTest
   test "should update loan" do
 
     patch loan_url(@loan), params: { loan: { interest: @loan.interest, paid_in_full: @loan.paid_in_full, percent: @loan.percent, principal_approved: @loan.principal_approved, principal_requested: @loan.principal_requested, charges: @loan.charges, application_fee: @loan.application_fee, starts_on: @loan.starts_on, ends_on: @loan.ends_on, duration: @loan.duration } }
-    # patch loan_url(@loan), params: { loan: { interest: @loan.interest, paid_in_full: @loan.paid_in_full, percent: @loan.percent, principal_approved: @loan.principal_approved, principal_requested: @loan.principal_requested } }
     assert_redirected_to loan_url(@loan)
   end
 

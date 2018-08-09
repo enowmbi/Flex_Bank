@@ -8,4 +8,4 @@ one:
 two:
   name: MyString
   description: MyText
-  is_group: false
+  is_group: true

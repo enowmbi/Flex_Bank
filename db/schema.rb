@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107204430) do
+ActiveRecord::Schema.define(version: 20180101115734) do
 
   create_table "account_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.boolean  "percent"
     t.string   "apply_to"
     t.integer  "bank_account_type_id"
-    t.string   "setting_type_id"
+    t.integer  "setting_type_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
@@ -91,6 +91,10 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.integer  "client_type_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -113,6 +117,10 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.integer  "department_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "entries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -130,6 +138,7 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.string   "middle_name"
     t.string   "last_name"
     t.text     "address",                limit: 65535
+    t.string   "city"
     t.string   "phone"
     t.string   "email"
     t.integer  "identification_type_id"
@@ -137,6 +146,10 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.integer  "client_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "identification_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -160,7 +173,7 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.decimal  "interest_expected",  precision: 10
     t.decimal  "interest_paid",      precision: 10
     t.decimal  "charges_paid",       precision: 10
-    t.datetime "date_of_payment"
+    t.date     "date_of_payment"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end
@@ -185,6 +198,7 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.string   "middle_name"
     t.string   "last_name"
     t.text     "address",                limit: 65535
+    t.string   "city"
     t.string   "phone"
     t.string   "email"
     t.string   "relationship"
@@ -193,11 +207,15 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.integer  "bank_account_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
-    t.text     "address",           limit: 65535
+    t.text     "address",            limit: 65535
     t.string   "city"
     t.string   "phone"
     t.string   "email"
@@ -205,8 +223,12 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.string   "cnps_number"
     t.string   "motto"
     t.integer  "parent_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "setting_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -231,6 +253,7 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.string   "middle_name"
     t.string   "last_name"
     t.text     "address",                  limit: 65535
+    t.string   "city"
     t.string   "phone"
     t.string   "email"
     t.string   "relationship_or_position"
@@ -240,6 +263,10 @@ ActiveRecord::Schema.define(version: 20171107204430) do
     t.integer  "bank_account_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

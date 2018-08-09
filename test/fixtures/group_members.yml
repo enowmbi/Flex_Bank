@@ -5,6 +5,7 @@ one:
   middle_name: MyString
   last_name: MyString
   address: MyText
+  city: MyString
   phone: MyString
   email: testing1@flexbank.com
   identification_type: one
@@ -16,8 +17,9 @@ two:
   middle_name: MyString
   last_name: MyString
   address: MyText
+  city: MyString
   phone: MyString
   email: testing2@flexbank.com
   identification_type: one
   identification_number: 1
-  client: one
+  client: two

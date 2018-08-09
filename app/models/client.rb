@@ -5,7 +5,7 @@ class Client < ApplicationRecord
   belongs_to :identification_type
 
 
-  validates :first_name,:last_name,:address,:phone,:identification_number, :presence => true
+  validates :first_name,:address,:phone,:identification_number, :presence => true
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
   
@@ -18,6 +18,8 @@ class Client < ApplicationRecord
   before_save  :capitalize_first_letter_of_name
   
   
+	has_attached_file :image, styles: { large: "450x450>", medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   
   # private 
   def full_name

@@ -1,18 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @client.first_name %>
-</p>
-
-<p>
-  <strong>Middle name:</strong>
-  <%= @client.middle_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @client.last_name %>
+  <strong>Name:</strong>
+  <%= @client.full_name %>
 </p>
 
 <p>
@@ -50,5 +40,19 @@
   <%= @client.client_type.name %>
 </p>
 
+
+    <div class="row">
+      <div class=" col-md-4 text-center">
+    <% if @client !=nil &&  @client.client_type_id != nil %>
+        <%= link_to('Group Members',client_group_members_path(@client),class:"btn btn-primary") if @client.client_type.is_group %>
+      <% end  %>
+    </div>
+
+      <div class=" col-md-4 text-center">
+    <% if @client !=nil &&  @client.client_type_id != nil %>
+        <%= link_to('Manage Bank Accounts',client_bank_accounts_path(@client),class:"btn btn-primary") %>
+      <% end  %>
+    </div>
+    </div>
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

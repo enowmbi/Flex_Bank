@@ -27,4 +27,11 @@ class AccountTest < ActiveSupport::TestCase
     assert_not @account.valid?,"account valid without description"
   end
 
+  test "account should not be valid without account type id" do 
+    @account.name = "social"
+    @account.description = "account description"
+    @account.code = "my code"
+    @account.account_type_id = nil
+    assert_not @account.valid?,"account valid without account type id"
+  end
 end

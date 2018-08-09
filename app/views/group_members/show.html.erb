@@ -1,18 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @group_member.first_name %>
-</p>
 
 <p>
-  <strong>Middle name:</strong>
-  <%= @group_member.middle_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @group_member.last_name %>
+  <strong>Name:</strong>
+  <%= @group_member.full_name %>
 </p>
 
 <p>
@@ -31,6 +22,11 @@
 </p>
 
 <p>
+  <strong>City:</strong>
+  <%= @group_member.city %>
+</p>
+
+<p>
   <strong>Identification type:</strong>
   <%= @group_member.identification_type_id %>
 </p>
@@ -45,5 +41,5 @@
   <%= @group_member.client_id %>
 </p>
 
-<%= link_to 'Edit', edit_group_member_path(@group_member) %> |
-<%= link_to 'Back', group_members_path %>
+<%= link_to 'Edit', edit_client_group_member_path(@group_member.client_id,@group_member.id) %> |
+<%= link_to 'Back', client_group_members_path %>

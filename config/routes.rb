@@ -1,21 +1,24 @@
 Rails.application.routes.draw do
 
   root 'dashboards#index'
-  resources :signatories
   resources :settings
   resources :setting_types
   resources :organizations
-  resources :next_of_kins
   resources :loans
   resources :loan_payments
   resources :loan_officers
   resources :identification_types
-  resources :group_members
   resources :employees
   resources :departments
-  resources :clients
+  resources :clients do 
+    resources :group_members
+    resources :bank_accounts  do 
+      resources :signatories
+      resources :next_of_kins
+    end 
+  end
+
   resources :client_types
-  resources :bank_accounts
   resources :bank_account_types
   resources :accounts
   resources :bank_account_type_settings
@@ -34,8 +37,8 @@ Rails.application.routes.draw do
   get 'dashboards/settings_and_configurations'
   get 'dashboards/user_accounts'
 
-    # namespace :v1 do
-      # post "accounting_transactions/new_entry", to: "account_transactions#new_entry"
-    # end
-  end
+  # namespace :v1 do
+  # post "accounting_transactions/new_entry", to: "account_transactions#new_entry"
+  # end
+end
 

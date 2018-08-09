@@ -1,5 +1,6 @@
 <h1>New Signatory</h1>
 
-<%= render 'form', signatory: @signatory %>
 
-<%= link_to 'Back', signatories_path %>
+<%= render partial: "form",locals: {client: @client, bank_account: @bank_account, signatory: @signatory} %>
+
+<%= link_to 'Back', client_bank_account_signatories_path %>

@@ -1,6 +1,7 @@
-<h1>Editing Group Member</h1>
+<h1>Editing Group Member </h1>
+<h3><%="Client : #{@group_member.client.full_name}" %></h3>
+<hr/>
+<%= render partial: "form", locals:{group_member: @group_member, client: @client} %>
 
-<%= render 'form', group_member: @group_member %>
-
-<%= link_to 'Show', @group_member %> |
-<%= link_to 'Back', group_members_path %>
+<%= link_to 'Show', [@group_member.client,@group_member] %> |
+<%= link_to 'Back', client_group_members_path %>

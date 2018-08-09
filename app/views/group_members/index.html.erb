@@ -2,18 +2,16 @@
 
 <h1>Group Members</h1>
 
-<table>
+<table class="table table-striped table-condensed table-hover">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Middle name</th>
-      <th>Last name</th>
+      <th>Name</th>
       <th>Address</th>
       <th>Phone</th>
       <th>Email</th>
-      <th>Identification type</th>
-      <th>Identification number</th>
-      <th>Client</th>
+      <th>City</th>
+      <th>Identification Type</th>
+      <th>Identification Number</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,18 +19,17 @@
   <tbody>
     <% @group_members.each do |group_member| %>
       <tr>
-        <td><%= group_member.first_name %></td>
-        <td><%= group_member.middle_name %></td>
-        <td><%= group_member.last_name %></td>
+        <td><%= group_member.full_name%></td>
         <td><%= group_member.address %></td>
         <td><%= group_member.phone %></td>
         <td><%= group_member.email %></td>
+        <td><%= group_member.city %></td>
         <td><%= group_member.identification_type_id %></td>
         <td><%= group_member.identification_number %></td>
-        <td><%= group_member.client_id %></td>
-        <td><%= link_to 'Show', group_member %></td>
-        <td><%= link_to 'Edit', edit_group_member_path(group_member) %></td>
-        <td><%= link_to 'Destroy', group_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% @client_id = group_member.client_id  %>
+        <td><%= link_to 'Show',client_group_member_path(group_member.client,group_member),class: "btn btn-info btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_client_group_member_path(group_member.client,group_member) ,class: "btn btn-info btn-xs" %></td>
+        <td><%= link_to 'Destroy',client_group_member_path(group_member.client,group_member), method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-info btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +37,4 @@
 
 <br>
 
-<%= link_to 'New Group Member', new_group_member_path %>
+<%= link_to 'New Group Member',new_client_group_member_path, class:"btn btn-primary" %>

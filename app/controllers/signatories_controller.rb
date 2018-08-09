@@ -1,10 +1,11 @@
 class SignatoriesController < ApplicationController
+  before_action :set_parent_object
   before_action :set_signatory, only: [:show, :edit, :update, :destroy]
 
   # GET /signatories
   # GET /signatories.json
   def index
-    @signatories = Signatory.all
+    @signatories = @bank_account.signatories
   end
 
   # GET /signatories/1
@@ -24,11 +25,11 @@ class SignatoriesController < ApplicationController
   # POST /signatories
   # POST /signatories.json
   def create
-    @signatory = Signatory.new(signatory_params)
+    @signatory =@bank_account.signatories.new(signatory_params)
 
     respond_to do |format|
       if @signatory.save
-        format.html { redirect_to @signatory, notice: 'Signatory was successfully created.' }
+        format.html { redirect_to client_bank_account_signatory_path(@client,@bank_account,@signatory), notice: 'Signatory was successfully created.' }
         format.json { render :show, status: :created, location: @signatory }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class SignatoriesController < ApplicationController
   def update
     respond_to do |format|
       if @signatory.update(signatory_params)
-        format.html { redirect_to @signatory, notice: 'Signatory was successfully updated.' }
+        format.html { redirect_to client_bank_account_signatory_path(@client,@bank_account,@signatory), notice: 'Signatory was successfully updated.' }
         format.json { render :show, status: :ok, location: @signatory }
       else
         format.html { render :edit }
@@ -56,19 +57,28 @@ class SignatoriesController < ApplicationController
   def destroy
     @signatory.destroy
     respond_to do |format|
-      format.html { redirect_to signatories_url, notice: 'Signatory was successfully destroyed.' }
+      format.html { redirect_to client_bank_account_signatories_url, notice: 'Signatory was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_signatory
-      @signatory = Signatory.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_signatory
+    @signatory = Signatory.find(params[:id])
+    @client = Client.find(params[:client_id])
+    @bank_account = BankAccount.find(params[:bank_account_id])
+    @bank_account.client = @client
+    @signatory.bank_account = @bank_account
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def signatory_params
-      params.require(:signatory).permit(:first_name, :middle_name, :last_name, :address, :phone, :email, :relationship_or_position, :major_signatory, :identification_type_id, :identification_number, :bank_account_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def signatory_params
+    params.require(:signatory).permit(:first_name, :middle_name, :last_name, :address, :phone, :email, :city, :relationship_or_position, :major_signatory, :identification_type_id, :identification_number, :bank_account_id, :image)
+  end
+
+  def set_parent_object
+    @client = Client.find(params[:client_id])
+    @bank_account = @client.bank_accounts.find(params[:bank_account_id])
+  end
 end

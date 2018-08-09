@@ -1,15 +1,18 @@
 class GroupMembersController < ApplicationController
+  before_action :set_parent_object
   before_action :set_group_member, only: [:show, :edit, :update, :destroy]
 
   # GET /group_members
   # GET /group_members.json
   def index
-    @group_members = GroupMember.all
+    @group_members = @client.group_members
+    
   end
 
   # GET /group_members/1
   # GET /group_members/1.json
   def show
+
   end
 
   # GET /group_members/new
@@ -24,11 +27,10 @@ class GroupMembersController < ApplicationController
   # POST /group_members
   # POST /group_members.json
   def create
-    @group_member = GroupMember.new(group_member_params)
-
+    @group_member = @client.group_members.new(group_member_params)
     respond_to do |format|
       if @group_member.save
-        format.html { redirect_to @group_member, notice: 'Group member was successfully created.' }
+        format.html { redirect_to client_group_member_path(@client,@group_member), notice: 'Group member was successfully created.' }
         format.json { render :show, status: :created, location: @group_member }
       else
         format.html { render :new }
@@ -40,9 +42,12 @@ class GroupMembersController < ApplicationController
   # PATCH/PUT /group_members/1
   # PATCH/PUT /group_members/1.json
   def update
+    # @client = Client.find(params[:client_id])
+    # @group_member = GroupMember.where(:id => params[:id]).where(:client_id => params[:client_id])
+    
     respond_to do |format|
       if @group_member.update(group_member_params)
-        format.html { redirect_to @group_member, notice: 'Group member was successfully updated.' }
+        format.html { redirect_to client_group_member_path(@client,@group_member), notice: 'Group member was successfully updated.' }
         format.json { render :show, status: :ok, location: @group_member }
       else
         format.html { render :edit }
@@ -56,7 +61,7 @@ class GroupMembersController < ApplicationController
   def destroy
     @group_member.destroy
     respond_to do |format|
-      format.html { redirect_to group_members_url, notice: 'Group member was successfully destroyed.' }
+      format.html { redirect_to client_group_members_url, notice: 'Group member was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,11 +69,17 @@ class GroupMembersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group_member
+      @client = Client.find(params[:client_id])
       @group_member = GroupMember.find(params[:id])
+      @group_member.client = @client
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_member_params
-      params.require(:group_member).permit(:first_name, :middle_name, :last_name, :address, :phone, :email, :identification_type_id, :identification_number, :client_id)
+      params.require(:group_member).permit(:first_name, :middle_name, :last_name, :address, :phone, :city, :email, :identification_type_id, :identification_number, :client_id, :image)
+    end
+
+    def set_parent_object
+      @client = Client.find(params[:client_id])
     end
 end

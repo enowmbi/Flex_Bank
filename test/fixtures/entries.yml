@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  amount: 9.99
+  entry_type: Debit
+  account: one
+  accounting_transaction: one
+
+two:
+  description: MyString
+  amount: 9.99
+  entry_type: Credit
+  account: two
+  accounting_transaction: two  

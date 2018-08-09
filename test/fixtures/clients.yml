@@ -22,4 +22,4 @@ two:
   email: client2@flexbank.com
   identification_type: one
   identification_number: 1
-  client_type: one
+  client_type: two

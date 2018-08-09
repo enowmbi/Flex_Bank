@@ -2,7 +2,7 @@
 
 <h1>Bank Accounts</h1>
 
-<table>
+<table class="table table-striped table-condensed table-hover">
   <thead>
     <tr>
       <th>Account number</th>
@@ -24,9 +24,9 @@
         <td><%= bank_account.enable_email_alert %></td>
         <td><%= bank_account.bank_account_type_id %></td>
         <td><%= bank_account.account_officer %></td>
-        <td><%= link_to 'Show', bank_account %></td>
-        <td><%= link_to 'Edit', edit_bank_account_path(bank_account) %></td>
-        <td><%= link_to 'Destroy', bank_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show',client_bank_account_path(bank_account.client,bank_account),class: "btn btn-info btn-xs"  %></td>
+        <td><%= link_to 'Edit', edit_client_bank_account_path(bank_account.client,bank_account),class: "btn btn-info btn-xs"  %></td>
+        <td><%= link_to 'Destroy', client_bank_account_path(bank_account.client,bank_account), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-info btn-xs"  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Bank Account', new_bank_account_path %>
+<%= link_to 'New Bank Account', new_client_bank_account_path, class:"btn btn-primary" %>

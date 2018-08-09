@@ -27,5 +27,20 @@ class BankAccountTest < ActiveSupport::TestCase
     assert_not @bank_account.valid?,"bank account is valid without account number"
   end 
 
+  test "bank account should not be valid without client id" do 
+    @bank_account.account_number = bank_accounts(:one).account_number
+    @bank_account.currency = bank_accounts(:one).currency
+    # @bank_account.bank_account_type_id = bank_account_types(:one).id 
+    @bank_account.client_id = nil
+    assert_not @bank_account.valid?,"bank account is valid without client id"
+  end
+
+  test "bank account should not be valid without bank account type id" do 
+    @bank_account.account_number = bank_accounts(:one).account_number
+    @bank_account.currency = bank_accounts(:one).currency
+    @bank_account.bank_account_type_id = nil 
+    # @bank_account.client_id = clients(:one).id
+    assert_not @bank_account.valid?,"bank account is valid without bank account type id"
+  end
 
 end

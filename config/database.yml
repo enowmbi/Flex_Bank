@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: Godlovesme_1
+  username: <%= ENV['db_username'] %>
+  password: <%= Figaro.env.db_password %>
   socket: /var/run/mysqld/mysqld.sock
   port: 3306
 
@@ -51,5 +51,5 @@ test:
 production:
   <<: *default
   database: flex_bank_production
-  username: flex_bank
-  password: <%= ENV['FLEX_BANK_DATABASE_PASSWORD'] %>
+  username: <%= ENV['db_username'] %>
+  password: <%= ENV['db_password'] %>

@@ -39,7 +39,8 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 #use paperclip for files/image resizing and uploading 
-gem 'paperclip'
+gem 'paperclip','>=5.2.0'
+gem 'nokogiri','>=1.10.4'
 
 gem 'hirb'
 gem 'twilio-ruby'
